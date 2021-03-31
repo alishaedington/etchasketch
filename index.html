@@ -11,21 +11,21 @@
     <h1>
         Etch-A-Sketch
     </h1>
-    
-    <div id='container'></div>
-
     <div class='colorpicker'>
         <p>Color Selection:</p>
         <input type="color" id="colorpicker" value="#000000">
-
+        <button id='random'>Random</button>
+        <button id='mixer'>Mixer</button>
     </div>
+    <div id='container'></div>
 
-    <p>To clear grid, choose a new size:</p>
+
+    <p>Choose a new size:</p>
 
     <div class="slidecontainer">
         <input type="range" min="2" max="64" value="16" class="slider" id="myRange">
     </div>
-
+    <p>* to clear current size, click on the blue slider ball *</p>
 
     <script src="javascript.js"></script>
 </body>

@@ -16,7 +16,7 @@
   
   .grid-item {
     padding: 1px;
-    border: 1px solid #ddd;
+    border: none;
     text-align: center;
     background: white;
   }
@@ -50,10 +50,12 @@
 
   #colorpicker {
     appearance: none;
-    height: 30px;
-    width: 70px;
+    height: 40px;
+    width: 80px;
     border: 1px solid black;
     border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 
   .colorpicker {
@@ -65,4 +67,22 @@
     font-size: 50px;
     display: flex;
     justify-content: center;
+  }
+  #random {
+    height: 43px;
+    width: 83px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
+  }
+  #mixer {
+    height: 43px;
+    width: 83px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
   }

@@ -8,21 +8,35 @@ function makeRows(rows, cols) {
         let cell = document.createElement("div");
         container.appendChild(cell).className = "grid-item";
     };
-};
+}
 
 function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
         color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
 }
 
-function removeGrid(container) {
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
+function randomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
     }
+    const colorChange = container.querySelectorAll('div');
+    colorChange.forEach(div => div.addEventListener('mouseover', (event) => {
+        event.target.style.backgroundColor = color;
+    }));
+}
+
+
+function newColorEverySquare() {
+    const colorChange = container.querySelectorAll('div');
+    colorChange.forEach(div => div.addEventListener('mouseover', (event) => {
+        event.target.style.backgroundColor = getRandomColor();
+    }));
 }
 
 function colorChange() {
@@ -32,7 +46,13 @@ function colorChange() {
     }));
 }
 
-var slider = document.getElementById("myRange");
+function removeGrid(container) {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+}
+
+let slider = document.getElementById("myRange");
 
 document.getElementById('myRange').addEventListener('change', function () {
     let size = this.value;
@@ -41,6 +61,28 @@ document.getElementById('myRange').addEventListener('change', function () {
     colorChange();
 });
 
+document.getElementById('myRange').addEventListener('click', function () {
+    let size = this.value;
+    removeGrid(container);
+    makeRows(size, size);
+    colorChange();
+});
+
+document.getElementById('random').addEventListener('click', function () {
+    randomColor();
+});
+
+document.getElementById('colorpicker').addEventListener('change', function () {
+    colorChange();
+});
+
+document.getElementById('colorpicker').addEventListener('click', function () {
+    colorChange();
+});
+
+document.getElementById('mixer').addEventListener('click', function () {
+    newColorEverySquare();
+})
 
 
 makeRows(16, 16);
